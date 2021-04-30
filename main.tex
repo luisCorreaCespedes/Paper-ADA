@@ -44,7 +44,20 @@ Breve resumen.
 
 %INTRODUCCIÓN------------------------------------------------------------------------
 \section{INTRODUCCIÓN}
-Escribir una introducción.
+Las matrices son un tipo de estructura matemática, objeto principal de estudio de la rama del álgebra lineal, relevante en el desarrollo de muchas ciencias. Es utilizada ampliamente para la resolución de sistemas de ecuaciones lineales, derivadas parciales, ecuaciones diferenciales, entre otros; todos estos aplicables a variadas disciplinas como la estadística, economía, física, computación, entre otras.
+
+En las ciencias de la computación, esta estructura es ampliamente utilizada como método de resolución de muchos problemas. Esto se debe a que las matrices son una estructura que agilizan enormemente las operaciones algebraicas, que, utilizando otros métodos, serían tediosos e imprácticos, además de ser una estructura lógica-abstracta fácilmente comprendida por la mente humana, lo que ayuda a la interacción directa con la máquina. Por ejemplo, Las matrices son muy utilizadas en librerías de procesamiento gráfico, debido a su fácil procesamiento vectorial y representación de gráficos tridimensional a bidimensional. 
+
+La informática busca constantemente la optimización de los recursos para la realización de las tareas, principalmente el tiempo y memoria. Debido a que las matrices son una estructura relevante en la mayoría de los procesos informáticos nos es casi imposible no analizar los algoritmos de operación de matrices, sobre todo el de multiplicación, ya que la mayoría de las arquitecturas de procesadores basan sus instrucciones de bajo nivel en sumas y multiplicaciones. 
+
+Utilizando metodologías empíricas, se pretende realizar un experimento de aplicación de un algoritmo de multiplicación de matrices cuadradas, con el fin de analizar el tiempo de ejecución en función del tamaño de datos de entrada n, que en este caso corresponde a la dimensión de las matrices. Con los resultados se espera hallar con el modelo matemático que mejor se ajuste al algoritmo, utilizando técnicas como la regresión lineal. 
+
+Este algoritmo se implementará en lenguaje de programación híbrido C++, reconocido por su alto rendimiento en el manejo de los recursos del sistema. Se aplicará técnicas de programación tradicionales y se utilizará la asignación de memoria dinámica.
+
+Una vez hallado con el modelo matemático se buscará validarlo, realizando un set extra de muestras experimentales que comparen los resultados reales con los obtenidos utilizando el modelo.
+
+A continuación, encontrará una explicación a fondo del propósito, objetivos y metodologías del estudio, así como también el diseño y ejecución del experimento. Usted encontrará un análisis exhaustivo de los resultados obtenidos, así como la conclusión de éste.
+
 
 %CONTEXTO Y PROPÓSITO DEL EXPERIMENTO------------------------------------------------
 \section{CONTEXTO Y PROPÓSITO}\label{contexto_proposito}
@@ -60,7 +73,7 @@ Los datos de entrada (dependiendo del tamaño) al interactuar en un algoritmo, t
 Para tal efecto, se desarrollará un algoritmo que pueda crear y multiplicar dos matrices cuadradas de tamaño n. Una matriz es un arreglo bidimensional con un conjunto de datos, ordenados en filas ($i$) y columnas ($j$). Existen diversos tipos de matrices, como las matrices nulas, donde sus datos son solo ceros o las matrices cuadradas como se muestra en la \textit{Fig. 1}, las cuales tienen el mismo número de filas y columnas tal que \textit{n = i = j}.
 
 \begin{figure}
-\caption{\label{fig:matrices}Ejemplo de matrices cuadradas.}
+\caption{\textit{\label{fig:matrices}Ejemplo de matrices cuadradas.}}
 \centering
 \includegraphics[width=0.3\textwidth]{matrices.png}
 \end{figure}
@@ -75,7 +88,7 @@ El algoritmo en estudio está escrito en lenguaje de programación $C++$. Este a
 
 El código del algoritmo es el siguiente:
 
-\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+\lstset{language=, breaklines=true, basicstyle=\footnotesize}
 \begin{lstlisting}[frame=single]
 
 #include <iostream>
@@ -148,7 +161,7 @@ int main(){
 El código diseñado está modelado para recibir valores de entrada de $n$ en un rango aproximado entre 1 a 10000. Para tal efecto, las matrices declaradas tendrán asignación de memoria. Y además, se usa la librería time.h para poder calcular los tiempos de ejecución del algoritmo.
 
 %OBJETIVOS---------------------------------------------------------------------------
-\section{OBJETIVOS DEL ESTUDIO}\label{objetivos}
+\section{OBJETIVOS DEL EXPERIMENTO}\label{objetivos}
 Los objetivos son las razones por las cuales se lleva a cabo una acción a corto, mediano o largo plazo. La importancia de los objetivos reside en el hecho de permitir el orden de forma eficiente para saber cómo trabajar o actuar y qué cosas o resultados buscar.
 
 \subsection{Objetivo general}
@@ -166,11 +179,78 @@ Medir el tiempo de ejecución de un algoritmo de multiplicación de matrices cua
     \item Comentar los valores RDP y explicar el porcentaje obtenido.
 \end{itemize}
 
-%OBJETIVOS---------------------------------------------------------------------------
+%METODOLOGÍA-------------------------------------------------------------
 \section{METODOLOGÍA}\label{metodología}
 Una buena forma de conseguir resultados esperados, es implementar una metodología que se adapte a las necesidades del estudio, así generando una visión clara y concisa de las acciones relevantes consideradas en la realización del experimento.
 
 \subsection{Reuniones y roles de trabajo}
-Para el desarrollo de la actividad, se determinaron sesiones de estudio con una duración de al menos dos horas cada tres días.
+Para el desarrollo de la actividad, se determinaron sesiones de estudio con una duración de al menos dos horas cada tres días. En cada sesión, se distribuyeron las tareas para cada integrante del equipo, además de planificar las sesiones siguientes.
 
+\subsection{Etapas del experimento}
+Para la elaboración del experimento, se eligió un lenguaje de programación fácil de dominar para los integrantes del grupo. Entre las alternativas propuestas por cada integrante (Java, Python, Ruby, C++), se determinó el uso de $C++$ para el desarrollo del algoritmo.
+
+Con el lenguaje elegido, se comenzó a diseñar el algoritmo para multiplicar dos matrices. Cada integrante diseñó un algoritmo respectivo, así escogiendo el más adecuado y eficiente, testeando diversos valores de entrada de $n$ para su correcto funcionamiento.
+
+El diseño del algoritmo se basa en la implementación de dos matrices creadas de forma dinámica dependiendo del valor de entrada de $n$ mediante consola. Para la operación de multiplicación se debe considerar que teniendo dos matrices $A$ y $B$, estas son multiplicables si el número de columnas $i$ de la matriz $A$ es igual que el número de filas $j$ de la matriz $B$. Para la obtención de la matriz producto $C$ se usó la siguiente ecuación matemática:
+
+\begin{equation}
+A_{ij} \times B_{jk} = C_{ik}
+\end{equation}
+
+En la \textit{Eq. (1)}, el valor del elemento $C_{ik}$ de la matriz producto se obtiene multiplicando cada elemento de la fila $i$ de la matriz $A$ por cada elemento de la columna $j$ de la matriz $B$ y sumándolos. En la \textit{Fig. 2} se muestra el procedimiento de multiplicación de dos matrices pobladas.
+
+\begin{figure}
+\caption{\textit{\label{fig:multiplicacion}Proceso de multiplicación de dos matrices.}}
+\centering
+\includegraphics[width=0.4\textwidth]{multiplicacion.png}
+\end{figure}
+
+Además, se implementó en el código la librería \textit{time.h} para la medición del tiempo de ejecución de la creación de las matrices. Con la librería implementada, se procedió a utilizar la función \textit{clock()}, la cual calcula el tiempo en segundos en el momento que es llamada. A continuación se muestra el código para el cálculo del tiempo de ejecución:
+
+\lstset{language=, breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+
+//Funcion multiplicacion de matrices
+void multmatrix(int n){
+...
+}
+
+//Funcion principal
+int main(){
+  ...
+  //Creacion de variables enteras sin signo
+  unsigned t0, t1;
+  
+  //Llamada de la funcion clock() para el comienzo del tiempo del algoritmo
+  t0=clock();
+  
+  //Llamada de la funcion multiplicacion de matrices
+  multmatrix(n);
+  
+  //Llamada de la funcion clock() para el termino del tiempo del algoritmo
+  t1=clock();
+  
+  //Creacion de variable con el tiempo final de ejecucion del algoritmo
+  double time=(double(t1-t0)/CLOCKS_PER_SEC);
+  ...
+}
+\end{lstlisting}
+
+Todo el código implementado para la elaboración del experimento está en la sección 2 de este documento (CONTEXTO Y PROPÓSITO).
+
+Cada tiempo de ejecución entregado por el código fue recolectado y tabulado, con el fin de generar un gráfico en las coordenadas $x$ e $y$ en el plano cartesiano obteniendo su regresión adecuada y respectiva formulación del modelo matemático.
+
+\subsection{Herramientas de hardware}
+Se ha usado para el experimento un Notebook con las siguientes características:
+
+\begin{itemize}
+    \item CPU: AMD Ryzen 3 220U con frecuencia de 2,5 GHz.
+    \item RAM: 8 GB (1 x 8 GB) DDR4 con frecuencia de ??.
+\end{itemize}
+
+\subsection{Herramientas de software}
+
+aaaaaaaa
+
+%------------------------------------------------------------------------
 \end{document}
