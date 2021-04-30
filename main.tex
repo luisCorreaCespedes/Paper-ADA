@@ -15,6 +15,7 @@
 
 %Inicio del documento-----------------------------------------------------------------
 \begin{document}
+\twocolumn[
 
 %Título y autores---------------------------------------------------------------------
 \title{TIEMPO DE EJECUCIÓN DE UN ALGORITMO DE MATRICES CUADRADAS}
@@ -28,17 +29,24 @@ Rodrigo Aguirre  \\
 \institute{Universidad Tecnológica Metropolitana del Estado de Chile, Santiago, Chile
 }
 \maketitle
+\begin{@twocolumnfalse}
 
 %Resumen del documento----------------------------------------------------------------
 \begin{abstract}
-i dont know
-\end{abstract}
+Breve resumen.
 
-%INTRODUCCIÓN
+%Palabras Clave-----------------------------------------------------------------------
+\textit{Key words:} Datos, paper
+
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+%INTRODUCCIÓN-------------------------------------------------------------------------
 \section{INTRODUCCIÓN}
 
 
-%CONTEXTO Y PROPÓSITO DEL EXPERIMENTO
+%CONTEXTO Y PROPÓSITO DEL EXPERIMENTO-------------------------------------------------
 \section{CONTEXTO Y PROPÓSITO}\label{contexto_proposito}
 
 Un algoritmo es un conjunto de instrucciones definidas, o secuencias de pasos lógicos que permiten solucionar un problema o realizar una tarea determinada. Estos algoritmos pueden clasificarse acorde a su complejidad, ya sean sencillos o complejos. Al disponer de un algoritmo que funcione correctamente, se nos hace útil determinar ciertos criterios para cuantificar su comportamiento, o en otras palabras, su rendimiento.
@@ -49,13 +57,22 @@ Se denomina como tiempo de ejecución de un algoritmo al rango de tiempo t en qu
 
 Los datos de entrada (dependiendo del tamaño) al interactuar en un algoritmo, tendrán distintos comportamientos y tiempos de ejecución, tal como muchas funciones matemáticas que existen. Esta comparación no es trivial, dado que al saber la complejidad de una función matemática, podemos relacionarla con algún algoritmo y determinar de forma teórica su grado de dificultad. Este grado de dificultad se puede usar para determinar a qué orden de complejidad corresponde cada algoritmo, y así encontrar el que mejor se adapte al problema a solucionar.
 
-Para tal efecto, se desarrollará un algoritmo que pueda crear y multiplicar dos matrices cuadradas de tamaño n. Una matriz es un arreglo bidimensional con un conjunto de datos, ordenados en filas ($i$) y columnas ($j$). Existen diversos tipos de matrices, como las matrices nulas, donde sus datos son solo ceros o las matrices cuadradas, las cuales tienen el mismo número de filas y columnas tal que \textit{n = i = j}.
+Para tal efecto, se desarrollará un algoritmo que pueda crear y multiplicar dos matrices cuadradas de tamaño n. Una matriz es un arreglo bidimensional con un conjunto de datos, ordenados en filas ($i$) y columnas ($j$). Existen diversos tipos de matrices, como las matrices nulas, donde sus datos son solo ceros o las matrices cuadradas como se muestra en la \textit{Fig. 1}, las cuales tienen el mismo número de filas y columnas tal que \textit{n = i = j}.
 
 \begin{figure}
+\caption{\label{fig:matrices}Ejemplo de matrices cuadradas.}
 \centering
 \includegraphics[width=0.3\textwidth]{matrices.png}
-\caption{\label{fig:matrices}Ejemplo de matrices cuadradas.}
 \end{figure}
 
+El uso de matrices cuadradas no solo está ligado a la programación o al álgebra clásica, sino que también a la economía en operaciones muy complejas como las descomposiciones de Cholesky y LU. En el ámbito computacional, las matrices son usadas dado su fácil manejo y liviandad para la manipulación de información. Bajo este contexto, son una buena composición para representar diversos tipos de grafos.
+
+La implementación del algoritmo busca formular una función que pueda describir de manera teórica y matemática el comportamiento del tiempo de ejecución en base al tamaño de datos de entrada $n$, por medio de un análisis empírico respecto a la ejecución del algoritmo con distintos valores de entrada de $n$.
+
+Se busca que en base a los valores obtenidos mediante el análisis empírico, estos sean comparados con valores obtenidos en base al modelo matemático formulado, con los mismos valores de entrada $n$ usados anteriormente. Con esto, se espera encontrar un margen de error RDP (\textit{Residual Prediction Deviation}) por cada valor de $n$ usado y explicar los valores RDP que sean interesantes.
+
+El algoritmo en estudio está escrito en lenguaje de programación $C++$. Este algoritmo creará dos matrices cuadradas $A$ y $B$ de tamaño $n$, las cuales estarán pobladas con números enteros positivos aleatorios dentro de un rango definido (desde 1 hasta 100). Con las matrices pobladas, se procederán a multiplicar para formar una nueva matriz cuadrada $C$.
+
+El código del algoritmo es el siguiente:
 
 \end{document}
