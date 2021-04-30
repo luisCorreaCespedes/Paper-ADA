@@ -42,11 +42,11 @@ Breve resumen.
 \end{@twocolumnfalse}
 ]
 
-%INTRODUCCIÓN-------------------------------------------------------------------------
+%INTRODUCCIÓN------------------------------------------------------------------------
 \section{INTRODUCCIÓN}
+Escribir una introducción.
 
-
-%CONTEXTO Y PROPÓSITO DEL EXPERIMENTO-------------------------------------------------
+%CONTEXTO Y PROPÓSITO DEL EXPERIMENTO------------------------------------------------
 \section{CONTEXTO Y PROPÓSITO}\label{contexto_proposito}
 
 Un algoritmo es un conjunto de instrucciones definidas, o secuencias de pasos lógicos que permiten solucionar un problema o realizar una tarea determinada. Estos algoritmos pueden clasificarse acorde a su complejidad, ya sean sencillos o complejos. Al disponer de un algoritmo que funcione correctamente, se nos hace útil determinar ciertos criterios para cuantificar su comportamiento, o en otras palabras, su rendimiento.
@@ -74,5 +74,103 @@ Se busca que en base a los valores obtenidos mediante el análisis empírico, es
 El algoritmo en estudio está escrito en lenguaje de programación $C++$. Este algoritmo creará dos matrices cuadradas $A$ y $B$ de tamaño $n$, las cuales estarán pobladas con números enteros positivos aleatorios dentro de un rango definido (desde 1 hasta 100). Con las matrices pobladas, se procederán a multiplicar para formar una nueva matriz cuadrada $C$.
 
 El código del algoritmo es el siguiente:
+
+\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+void multmatrix(int n)
+{
+  int i,j,k;
+  long **matriz1=NULL;
+  long **matriz2=NULL;
+  long **res=NULL;
+
+  matriz1=(long **)malloc(n * sizeof(long *));
+  matriz2=(long **)malloc(n * sizeof(long *));
+  res=(long **)malloc(n * sizeof(long *));
+    
+  for (i=0;i<n;i++){
+    matriz1[i]=(long *)malloc(n * sizeof(long *));
+    matriz2[i]=(long *)malloc(n * sizeof(long *));
+    res[i]=(long *)malloc(n * sizeof(long *));
+  }
+    
+  srand(time(NULL));
+    
+  for(i=0;i<n;i++){
+	for(j=0;j<n;j++){
+   	  matriz1[i][j]=rand()%100;
+      matriz2[i][j]=rand()%100;
+    }
+  }
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      long sum=0;
+      for(k=0;k<n;k++){
+        sum+=matriz1[j][k]*matriz2[k][i];
+      }
+      res[j][i]=sum;
+    }
+  }
+
+  cout<<"Resultado: ";
+    for(i=0;i<n;i++){
+      for(j=0;j<n;j++){
+        cout<<res[i][j];
+        cout<<"-";
+      }
+      cout<<endl;
+    }
+  }
+}
+
+int main(){
+  int n;
+  cout<<"Valor n: ";
+  cin>>n;
+  getchar();
+  unsigned t0, t1;
+  t0=clock();
+  multmatrix(n);
+  t1=clock();
+  double time=(double(t1-t0)/CLOCKS_PER_SEC);
+  cout<<"TIEMPO DE EJECUCION: "<<time;
+  return 0;
+}
+\end{lstlisting}
+
+El código diseñado está modelado para recibir valores de entrada de $n$ en un rango aproximado entre 1 a 10000. Para tal efecto, las matrices declaradas tendrán asignación de memoria. Y además, se usa la librería time.h para poder calcular los tiempos de ejecución del algoritmo.
+
+%OBJETIVOS---------------------------------------------------------------------------
+\section{OBJETIVOS DEL ESTUDIO}\label{objetivos}
+Los objetivos son las razones por las cuales se lleva a cabo una acción a corto, mediano o largo plazo. La importancia de los objetivos reside en el hecho de permitir el orden de forma eficiente para saber cómo trabajar o actuar y qué cosas o resultados buscar.
+
+\subsection{Objetivo general}
+Medir el tiempo de ejecución de un algoritmo de multiplicación de matrices cuadradas con datos de valores de entrada $n$ y realizar un análisis empírico de los resultados.
+
+\subsection{Objetivos específicos}
+\begin{itemize}
+    \item Diseñar y ejecutar un experimento a base de un algoritmo.
+    \item Recopilar muestras de datos experimentales de la aplicación del algoritmo.
+    \item Analizar los resultados obtenidos en el experimento.
+    \item Graficar los resultados obtenidos.
+    \item Determinar el modelo matemático en función al tiempo que se ajusta al problema.
+    \item Validar el modelo matemático obtenido ejecutando nuevamente el experimento con una serie de datos distintos a los usados anteriormente.
+    \item Comparar los resultados empíricos con los predichos en el modelo obtenido.
+    \item Comentar los valores RDP y explicar el porcentaje obtenido.
+\end{itemize}
+
+%OBJETIVOS---------------------------------------------------------------------------
+\section{METODOLOGÍA}\label{metodología}
+Una buena forma de conseguir resultados esperados, es implementar una metodología que se adapte a las necesidades del estudio, así generando una visión clara y concisa de las acciones relevantes consideradas en la realización del experimento.
+
+\subsection{Reuniones y roles de trabajo}
+Para el desarrollo de la actividad, se determinaron sesiones de estudio con una duración de al menos dos horas cada tres días.
 
 \end{document}
