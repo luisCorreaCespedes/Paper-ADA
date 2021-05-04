@@ -208,15 +208,13 @@ A_{ij} \times B_{jk} = C_{ik}
 
 En la \textit{Eq. (1)}, el valor del elemento $C_{ik}$ de la matriz producto se obtiene multiplicando cada elemento de la fila $i$ de la matriz $A$ por cada elemento de la columna $j$ de la matriz $B$ y sumándolos. En la \textit{Fig. 2} se muestra el procedimiento de multiplicación de dos matrices pobladas.
 
-\begin{figure}
+\begin{figure}[H]
 \caption{\textit{\label{fig:multiplicacion}Proceso de multiplicación de dos matrices}}
 \centering
 \includegraphics[width=0.4\textwidth]{imagenes/multiplicacion.png}
 \end{figure}
 
 Además, se implementó en el código la librería \textit{time.h} para la medición del tiempo de ejecución de la creación de las matrices. Con la librería implementada, se procedió a utilizar la función \textit{clock()}, la cual calcula el tiempo en segundos en el momento que es llamada. A continuación se muestra el código para el cálculo del tiempo de ejecución:
-
-
 
 \lstset{language=, breaklines=true, basicstyle=\footnotesize}
 \begin{lstlisting}[frame=single]
@@ -235,7 +233,7 @@ int main(){
   //Llamada de la funcion clock() para el comienzo del tiempo del algoritmo
   t0=clock();
   
-  //Llamada de la funcion multiplicacion de matrices
+  //Llamada de la funcion multiplicacion
   multmatrix(n);
   
   //Llamada de la funcion clock() para el termino del tiempo del algoritmo
@@ -253,7 +251,7 @@ Todo el código implementado para la elaboración del experimento está en la se
 Cada tiempo de ejecución entregado por el código fue recolectado y tabulado, con el fin de generar un gráfico en las coordenadas $x$ e $y$ en el plano cartesiano obteniendo su regresión adecuada y respectiva formulación del modelo matemático.
 
 \subsection{Herramientas de hardware}
-Se ha usado para el experimento un computador de escritorio con las siguientes características:
+Se ha usado para el experimento un computador portátil con las siguientes características:
 
 \begin{itemize}
     \item $CPU$: AMD Ryzen 3 2200U con Radeon Vega Mobile 2,5 GHz quadcore.
@@ -302,16 +300,16 @@ No se presentaron problemas en la ejecución del experimento, pero si una difere
 
 %RESULTADOS OBTENIDOS-------------------------------------------------------------
 \section{RESULTADOS OBTENIDOS}\label{resultados}
-Con los valores obtenidos, se elaboró la siguientes tabla:
+Con los valores obtenidos, se elaboró la siguiente tabla:
 
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con Windows y Linux}}\label{tab:tabla1}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
 $n$ & T[s] ($Windows$) & T[s] ($Linux$)  \\ \hline
-2 & $\Delta$0,000 & $\Delta$0,001 \\
-5 & $\Delta$0,015 & $\Delta$0,001 \\
-10 & $\Delta$0,015 & $\Delta$0,001 \\
-20 & $\Delta$0,057 & $\Delta$0,001 \\
+2 & $\Delta$0,000 & $\Delta$4,3x$10^{-5}$ \\
+5 & $\Delta$0,015 & $\Delta$9,9x$10^{-5}$ \\
+10 & $\Delta$0,015 & $\Delta$1,1x$10^{-4}$ \\
+20 & $\Delta$0,057 & $\Delta$2,7x$10^{-4}$ \\
 50 & $\Delta$0,339 & $\Delta$0,002 \\
 100 & $\Delta$1,432 & $\Delta$0,044 \\
 200 & $\Delta$5,718 & $\Delta$0,049 \\ 
@@ -327,7 +325,7 @@ $n$ & T[s] ($Windows$) & T[s] ($Linux$)  \\ \hline
 En la \textit{Fig. 3} se muestra el gráfico el tiempo de ejecución del algoritmo respecto a los valores de entrada de $n$ en el sistema operativo Windows 10 Pro x64 en función de los datos de la \textit{Tabla 1}:
 
 \begin{figure}[H]
-\caption{\textit{\label{fig:grafico1}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Windows 10}}
+\caption{\textit{\label{fig:grafico1}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en Windows 10}}
 \centering
 \includegraphics[width=0.47\textwidth]{imagenes/grafico_1.png}
 \end{figure}
@@ -335,7 +333,7 @@ En la \textit{Fig. 3} se muestra el gráfico el tiempo de ejecución del algorit
 En la \textit{Fig. 4} se muestra el gráfico el tiempo de ejecución del algoritmo respecto a los valores de entrada de $n$ en el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1:
 
 \begin{figure}[H]
-\caption{\textit{\label{fig:grafico2}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Linux Manjaro}}
+\caption{\textit{\label{fig:grafico2}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el sistema operativo Linux Manjaro}}
 \centering
 \includegraphics[width=0.47\textwidth]{imagenes/grafico_2.png}
 \end{figure}
@@ -372,9 +370,31 @@ En la \textit{Fig. 5} se muestra el gráfico el tiempo de ejecución del algorit
 
 %ANÁLISIS DE RESULTADOS-------------------------------------------------------------
 \section{ANÁLISIS DE RESULTADOS}\label{analisis}
-Se decidió utilizar los datos de la \textit{Tabla 1}, específicamente los tiempos de ejecución del algoritmo en el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1, esto debido a que las muestras obtenidas fueron más estables y presentaron un mejor rendimiento con respecto a lo que se obtuvo en Windows 10 Pro x64.
+Para realizar el análisis del experimento, se decidieron utilizar los datos de los tiempos de ejecución del algoritmo en el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1. Esta decisión se debe a que las muestras obtenidas fueron más estables y presentaron un mejor rendimiento con respecto a lo que se obtuvo en Windows 10 Pro x64 (tomando en consideración el mismo hardware en ambos sistemas operativos).
 
-Utilizando estos datos se realizó un gráfico de tiempo versus entrada de datos, como los obtenidos en la sección 7 (RESULTADOS OBTENIDOS) (ver \textit{Fig. 4}), donde la entrada de datos es la variable independiente y el tiempo de ejecución la variable dependiente. Hecho esto, usando el software de hojas de cálculo Microsoft Excel se utilizó la herramienta de línea de tendencia para realizar una regresión lineal, ergo, determinar el modelo matemático que mejor se ajusta al comportamiento temporal del algoritmo en estudio.
+En la \textit{Tabla 3} se muestran los datos obtenidos con la ejecución del algoritmo desde el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1.
+
+\begin{table}[H]
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en Manjaro Linux}}\label{tab:tabla3}
+\begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
+$n$ & T[s] ($Linux$)  \\ \hline
+2 & $\Delta$4,3x$10^{-5}$ \\
+5 & $\Delta$9,9x$10^{-5}$ \\
+10 & $\Delta$1,1x$10^{-4}$ \\
+20 & $\Delta$2,7x$10^{-4}$ \\
+50 & $\Delta$0,002 \\
+100 & $\Delta$0,044 \\
+200 & $\Delta$0,049 \\ 
+250 & $\Delta$0,084 \\ 
+500 & $\Delta$0,513 \\ 
+750 & $\Delta$1,724 \\
+1000 & $\Delta$3,833 \\ 
+1500 & $\Delta$14,082 \\ 
+2000 & $\Delta$38,143 \\ \hline
+\end{tabularx}
+\end{table}
+
+Utilizando los datos de la \textit{Tabla 3} se realizó un gráfico de tiempo de ejecución respecto a la entrada de datos, donde la entrada de datos es la variable independiente y el tiempo de ejecución la variable dependiente. Hecho esto, usando el software de hojas de cálculo Microsoft Excel se utilizó la herramienta de línea de tendencia para realizar una regresión lineal, ergo, determinar el modelo matemático que mejor se ajusta al comportamiento temporal del algoritmo en estudio, considerando si $R^2$ se acerca a $1$ para escoger la más adecuada.
 
 \begin{figure}[H]
 \caption{\textit{\label{fig:grafico4}Modelo obtenido mediante regresión lineal sobre los tiempos de ejecución del algoritmo en sistema operativo Manjaro Linux}}
@@ -382,7 +402,7 @@ Utilizando estos datos se realizó un gráfico de tiempo versus entrada de datos
 \includegraphics[width=0.47\textwidth]{imagenes/grafico_4.png}
 \end{figure}
 
-Como se puede apreciar en la figura 6, La regresión lineal aplicada sobre los puntos del gráfico muestra un modelo matemático de tendencia polinómica de grado 3, con un error $R^{2}$ = 0,9998. La ecuación obtenida queda de la siguiente forma:
+Como se puede apreciar en la \textit{Fig. 6}, La regresión lineal aplicada sobre los puntos del gráfico muestra un modelo matemático de tendencia polinómica de grado 3, con un error $R^{2}$ = 0,9998. La ecuación obtenida queda de la siguiente forma:
 
 {
 \scriptsize
@@ -391,14 +411,41 @@ Como se puede apreciar en la figura 6, La regresión lineal aplicada sobre los p
 \end{equation}
 }
 
-FALTA SI ES QUE PODEMOS LO DE ORDEN DE COMPLEJIDAD
+Con la \textit{Eq. (2)} elaborada, se procede a determinar el comportamiento en el peor de los casos de esta ecuación mediante análisis teórico. Para ello, se debe buscar un valor $n_0$ mayor que cero y un valor $c$ mayor que cero, tal que se cumpla lo siguiente:
+
+\begin{equation}
+T(n) \leq f(n), \forall n_0
+\end{equation}
+
+Donde en la \textit{Eq. 3}, $f(n)$ es una función de cota superior para explicar el comportamiento de $T(n)$, siempre y cuando el argumento sea infinito.
+
+La \textit{Eq. (2)} al ser polinómica de grado 3, definiremos $f(n)$ = $n^3$, con valores de $c$ = 2,7x$10^{-4}$ y $n_{0}$ = 20, tal que podamos obtener una expresión como la siguiente:
+
+\begin{equation}
+T(n_{0}) \leq cf(n_{0}).
+\end{equation}
+
+Al calcular $T(n_{0})$ con $n_{0}$ = 20 nos da un resultado de
+-0,047, y en $cf(n_{0})$ = 2,16, de forma que se cumple la \textit{Eq. (4)}. Por tanto, los valores de $c$ y $n_0$ son completamente válidos.
+
+Para estudiar el comportamiento que tendrá $T(n)$ en el peor de los casos cuando $n$ $\longrightarrow$ $\infty$, se aplicará un análisis asintótico en la \textit{Eq. (4)} usando la teoría de límites como se muestra en la \textit{Eq. (5)} y \textit{Eq. (6)}:
+
+\begin{equation}
+\lim_{n\rightarrow\infty}(T(n_{0})) \leq \lim_{n\rightarrow\infty}(cf(n_{0}))
+\end{equation}
+
+\begin{equation}
+\lim_{n\rightarrow\infty}(-0,047) \leq \lim_{n\rightarrow\infty}(2,16)
+\end{equation}
+
+Resolviendo la \textit{Eq. (5)} nos da un resultado de -0,047 $\leq$ 2,16. Por tanto, podemos concluir que el comportamiento de nuestra ecuación $T(n)$, si es menor o igual que la función $cf(n)$ cuando $T(n)$ $\rightarrow$ $\infty$ con $f(n)$ = $n^{3}$ tiene un \textit{Orden de Complejidad} de $O(n^{3})$, para todos los valores de $n$ mayores o igual a 20.
 
 \subsection{Validación del modelo}
 
-Para comprobar si la ecuación entrega valores estimativos y/o referenciales de tiempo de ejecución con respecto a los obtenidos mediante la aplicación del algoritmo, se han anotado los errores porcentuales (RDP) correspondientes en la \textit{Tabla 3}, así mostrando el sesgo de cada valor declarado por $n$.
+Para comprobar si la ecuación entrega valores estimativos y/o referenciales de tiempo de ejecución con respecto a los obtenidos mediante la aplicación del algoritmo, se han anotado los errores porcentuales (RDP) correspondientes en la \textit{Tabla 4}, así mostrando el sesgo de cada valor declarado por $n$.
 
 \begin{table}[H]
-\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación con los datos obtenidos de forma experimental y mediante fórmula junto con su error porcentual}}\label{tab:tabla3}
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación con los datos obtenidos de forma experimental y mediante fórmula junto con su error porcentual}}\label{tab:tabla4}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
 $n$ & T[s] & T(n)[s] & RDP\\ \hline
 2 & $\Delta$0,001 & $\Delta$-0,092 & 101\% \\
@@ -421,7 +468,7 @@ $n$ & T[s] & T(n)[s] & RDP\\ \hline
 \subsection{Predicciones con el modelo}
 
 \begin{table}[H]
-\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación a los datos obtenidos con la ecuación resultante del modelo matemático formulado.}}\label{tab:tabla4}
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación a los datos obtenidos con la ecuación resultante del modelo matemático formulado.}}\label{tab:tabla5}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
 $n$ & T[s] ($Linux$) \\ \hline
 1250 & $\Delta$7,449 \\
