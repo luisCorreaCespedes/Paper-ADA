@@ -2,6 +2,7 @@
 \documentclass[11pt, twocolumn]{llncs}
 \usepackage[spanish, es-tabla]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath}
 \usepackage{float}
 \usepackage{multicol}
 \usepackage{multirow}
@@ -22,23 +23,23 @@
 %Título y autores---------------------------------------------------------------------
 \title{TIEMPO DE EJECUCIÓN DE UN ALGORITMO DE MULTIPLICACIÓN DE MATRICES CUADRADAS}
 \author{
-Germán Contreras  \and 
-Luciano Grandi  \and
+Rodrigo Aguirre  \and 
+Germán Contreras \and
 Luis Correa \and 
-Rodrigo Aguirre  \\ 
- \email{\{usuario1\}\{usuario2\}\{usuario3\}\{usuario4\} @utem.cl}
+Luciano Grandi  \\ 
+ \email{\{rodrigo.aguirrer\}\{german.contrerasa\}\{luis.correac\}\{luciano.grandim\} @utem.cl}
 }
 \institute{Universidad Tecnológica Metropolitana del Estado de Chile, Santiago, Chile
 }
-\maketitle
+\maketitle 
 \begin{@twocolumnfalse}
 
 %Resumen del documento----------------------------------------------------------------
 \begin{abstract}
-Breve resumen.
+FALTA ESTO
 
 %Palabras Clave-----------------------------------------------------------------------
-\textit{Palabras Clave:} Datos, paper
+\textit{Palabras Clave:} datos, modelo matemático, algoritmo, tiempos de ejecución, formulación, matrices, ecuación, orden de complejidad, gráfico, optimización, procesamiento, resultados.
 
 \end{abstract}
 \end{@twocolumnfalse}
@@ -48,7 +49,9 @@ Breve resumen.
 \section{INTRODUCCIÓN}
 Las matrices son un tipo de estructura matemática, objeto principal de estudio de la rama del álgebra lineal, relevante en el desarrollo de muchas ciencias. Es utilizada ampliamente para la resolución de sistemas de ecuaciones lineales, derivadas parciales, ecuaciones diferenciales, entre otros; todos estos aplicables a variadas disciplinas como la estadística, economía, física, computación, entre otras.
 
-En las ciencias de la computación, esta estructura es ampliamente utilizada como método de resolución de muchos problemas. Esto se debe a que las matrices son una estructura que agilizan enormemente las operaciones algebraicas, que, utilizando otros métodos, serían tediosos e imprácticos, además de ser una estructura lógica-abstracta fácilmente comprendida por la mente humana, lo que ayuda a la interacción directa con la máquina. Por ejemplo, Las matrices son muy utilizadas en librerías de procesamiento gráfico, debido a su fácil procesamiento vectorial y representación de gráficos tridimensional a bidimensional. 
+En las ciencias de la computación, esta estructura es ampliamente utilizada como método de resolución de muchos problemas. Esto se debe a que las matrices son una estructura que agilizan enormemente las operaciones algebraicas, que, utilizando otros métodos, serían tediosos e imprácticos, además de ser una estructura lógica-abstracta fácilmente comprendida por la mente humana, lo que ayuda a la interacción directa con la máquina.
+
+Por ejemplo, las matrices son muy utilizadas en librerías de procesamiento gráfico, debido a su fácil procesamiento vectorial y representación de gráficos tridimensional a bidimensional. 
 
 La informática busca constantemente la optimización de los recursos para la realización de las tareas, principalmente el tiempo y memoria. Debido a que las matrices son una estructura relevante en la mayoría de los procesos informáticos nos es casi imposible no analizar los algoritmos de operación de matrices, sobre todo el de multiplicación, ya que la mayoría de las arquitecturas de procesadores basan sus instrucciones de bajo nivel en sumas y multiplicaciones. 
 
@@ -59,7 +62,6 @@ Este algoritmo se implementará en lenguaje de programación híbrido C++, recon
 Una vez hallado con el modelo matemático se buscará validarlo, realizando un set extra de muestras experimentales que comparen los resultados reales con los obtenidos utilizando el modelo.
 
 A continuación, encontrará una explicación a fondo del propósito, objetivos y metodologías del estudio, así como también el diseño y ejecución del experimento. Usted encontrará un análisis exhaustivo de los resultados obtenidos, así como la conclusión de éste.
-
 
 %CONTEXTO Y PROPÓSITO DEL EXPERIMENTO------------------------------------------------
 \section{CONTEXTO Y PROPÓSITO}\label{contexto_proposito}
@@ -76,12 +78,12 @@ Para tal efecto, se desarrollará un algoritmo que pueda crear y multiplicar dos
 
 %PARA PONER IMÁGENES SEGUIR ESTE EJEMPLO
 \begin{figure}
-\caption{\textit{\label{fig:matrices}Ejemplo de matrices cuadradas.}}
+\caption{\textit{\label{fig:matrices}Ejemplo de matrices cuadradas}}
 \centering
-\includegraphics[width=0.3\textwidth]{matrices.png}
+\includegraphics[width=0.3\textwidth]{imagenes/matrices.png}
 \end{figure}
 
-El uso de matrices cuadradas no solo está ligado a la programación o al álgebra clásica, sino que también a la economía en operaciones muy complejas como las descomposiciones de Cholesky y LU. En el ámbito computacional, las matrices son usadas dado su fácil manejo y liviandad para la manipulación de información. Bajo este contexto, son una buena composición para representar diversos tipos de grafos.
+El uso de matrices cuadradas no solo está ligado a la programación o al álgebra clásica, sino que también a la economía en operaciones muy complejas como las descomposiciones matriciales de Cholesky y LU. En el ámbito computacional, las matrices son usadas dado su fácil manejo y liviandad para la manipulación de información. Bajo este contexto, son una buena composición para representar diversos tipos de grafos.
 
 La implementación del algoritmo busca formular una función que pueda describir de manera teórica y matemática el comportamiento del tiempo de ejecución en base al tamaño de datos de entrada $n$, por medio de un análisis empírico respecto a la ejecución del algoritmo con distintos valores de entrada de $n$.
 
@@ -204,9 +206,9 @@ A_{ij} \times B_{jk} = C_{ik}
 En la \textit{Eq. (1)}, el valor del elemento $C_{ik}$ de la matriz producto se obtiene multiplicando cada elemento de la fila $i$ de la matriz $A$ por cada elemento de la columna $j$ de la matriz $B$ y sumándolos. En la \textit{Fig. 2} se muestra el procedimiento de multiplicación de dos matrices pobladas.
 
 \begin{figure}
-\caption{\textit{\label{fig:multiplicacion}Proceso de multiplicación de dos matrices.}}
+\caption{\textit{\label{fig:multiplicacion}Proceso de multiplicación de dos matrices}}
 \centering
-\includegraphics[width=0.4\textwidth]{multiplicacion.png}
+\includegraphics[width=0.4\textwidth]{imagenes/multiplicacion.png}
 \end{figure}
 
 Además, se implementó en el código la librería \textit{time.h} para la medición del tiempo de ejecución de la creación de las matrices. Con la librería implementada, se procedió a utilizar la función \textit{clock()}, la cual calcula el tiempo en segundos en el momento que es llamada. A continuación se muestra el código para el cálculo del tiempo de ejecución:
@@ -263,9 +265,7 @@ Además, se usara como complemento el sistema operativo \textit{Manjaro x64 Kern
 
 %DISEÑO DEL EXPERIMENTO-------------------------------------------------------------
 \section{DISEÑO DEL EXPERIMENTO}\label{diseño}
-En el presente experimento se mantendrán constantes las herramientas de hardware y software, esto con el fin de que no se vean afectados los resultados en las diferentes mediciones.
-
-Sin embargo, se realizaran mediciones extras en diferentes condiciones de hardware y software, con el fin de obtener nuevos datos para una posible conclusión con respecto a las variaciones que podría llegar a tener el experimento si se varía en la elección de hardware y software.
+En el presente experimento se mantendrán constantes las herramientas de hardware y software, esto con el fin de que no se vean afectados los resultados en las diferentes mediciones. Sin embargo, se realizarán mediciones extras en diferentes condiciones de hardware y software, con el fin de obtener nuevos datos para una posible conclusión con respecto a las variaciones que podría llegar a tener el experimento si se varía en la elección de hardware y software.
 
 Para realizar las mediciones en un hardware y software diferente se usará un computador de escritorio con las siguientes características:
 
@@ -281,13 +281,13 @@ Para realizar las mediciones en un hardware y software diferente se usará un co
     \item \textit{Sistema Operativo}: Windows 10 Pro x64.
 \end{itemize}
 
-Pasando al experimento, se usarán diferentes valores de $n$ para realizar la medición, siendo el valor mínimo posible para poder realizar la medición $2$ y como valor máximo no se estableció un numero debido a que teóricamente se podría llegar a calcular cualquier valor, sin embargo el aumento en tiempo a medida que se aumenta n es exponencial, y es por esta misma situación que para el experimento se estableció que el valor máximo a calcular por el grupo de trabajo sera de $2000$, abriéndose a la posibilidad de que si las herramientas de hardware lo permiten, poder calcular valores mas grandes de $n$ para mejorar la precisión del experimento.
+Pasando al experimento, se usarán diferentes valores de $n$ para realizar la medición, siendo el valor mínimo posible para poder realizar la medición $2$ y como valor máximo no se estableció un número debido a que teóricamente se podría llegar a calcular cualquier valor, sin embargo, el aumento en tiempo a medida que se aumenta n es exponencial, y es por esta misma situación que para el experimento se estableció que el valor máximo a calcular por el grupo de trabajo será de $2000$, abriéndose a la posibilidad de que si las herramientas de hardware lo permiten, poder calcular valores más grandes de $n$ para mejorar la precisión del experimento.
 
-Con el fin de que cada una de las mediciones tenga una precisión mas exacta y que se pueda llegar a resultados mas concluyentes es que se definió que para cada valor de $n$ se realizaran tres mediciones, ya que el solo tomar en cuenta una medición podría llegar a afectar el experimento, esto debido a que como se menciona anteriormente el hardware influye en los resultados del experimento, y si este por algún motivo se ve afectado durante el experimento, el valor obtenido podría llegar a no ser concluyente, y para asegurar que estos resultados no se vean afectados de esta manera es que el grupo de trabajo tomara estas mediciones para un mismo valor de $n$ en horarios diferentes del día.
+Con el fin de que cada una de las mediciones tenga una precisión mas exacta y que se pueda llegar a resultados más concluyentes, es que se definió que para cada valor de $n$ se realizarán tres mediciones, ya que el sólo tomar en cuenta una medición podría llegar a afectar el experimento, esto debido, a que como se menciona anteriormente el hardware influye en los resultados del experimento, y si este por algún motivo se ve afectado durante el experimento, el valor obtenido podría llegar a no ser concluyente, y para asegurar que estos resultados no se vean afectados, es que el grupo de trabajo tomará éstas mediciones para un mismo valor de $n$ en horarios diferentes del día.
 
-Luego de obtener los resultados, es que mediante el programa Excel se agregarán todos los datos obtenidos a una tabla, y su respectivo $n$ para así poder generar un gráfico que permita calcular la precisión de estos datos y la formula teórica que nos ayudaría a saber cuanto tiempo es que se podrían llegar a demorar mediciones futuras.
+Luego de obtener los resultados, es que mediante el programa Excel se agregarán todos los datos obtenidos a una tabla, y su respectivo $n$ para así poder generar un gráfico que permita calcular la precisión de estos datos y la fórmula teórica que nos ayudaría a saber cuanto tiempo es que se podrían llegar a demorar mediciones futuras.
 
-Los datos obtenidos junto con su gráfico serán analizados por el grupo de trabajo, y se realizará una comparación en la que se calcule mediante la formula obtenida el resultado teórico y se haga a la vez una comparación con el dato obtenido realmente, esto con el fin de asegurar la calidad del experimento y saber si es que los datos finalmente fueron concluyentes o la medición se vio afectada por diversos motivos.
+Los datos obtenidos junto con su gráfico, serán analizados por el grupo de trabajo, y se realizará una comparación en la que se calcule mediante la fórmula obtenida el resultado teórico y posteriormente, una comparación con el dato obtenido realmente. Esto con el fin de asegurar la calidad del experimento y saber si es que los datos finalmente fueron concluyentes o la medición se vio afectada por diversos motivos.
 
 %EJECUCIÓN DEL EXPERIMENTO-------------------------------------------------------------
 \section{EJECUCIÓN DEL EXPERIMENTO}\label{ejecucion}
@@ -302,13 +302,13 @@ No se presentaron problemas en la ejecución del experimento, pero si una difere
 Con los valores obtenidos, se elaboró la siguientes tabla:
 
 \begin{table}[H]
-\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con Windows y Linux.}}\label{tab:tabla1}
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con Windows y Linux}}\label{tab:tabla1}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
 $n$ & T[s] ($Windows$) & T[s] ($Linux$)  \\ \hline
-2 & $\Delta$0,000 & $\Delta$0,000 \\
-5 & $\Delta$0,015 & $\Delta$0,000 \\
-10 & $\Delta$0,015 & $\Delta$0,000 \\
-20 & $\Delta$0,057 & $\Delta$0,000 \\
+2 & $\Delta$0,000 & $\Delta$0,001 \\
+5 & $\Delta$0,015 & $\Delta$0,001 \\
+10 & $\Delta$0,015 & $\Delta$0,001 \\
+20 & $\Delta$0,057 & $\Delta$0,001 \\
 50 & $\Delta$0,339 & $\Delta$0,002 \\
 100 & $\Delta$1,432 & $\Delta$0,044 \\
 200 & $\Delta$5,718 & $\Delta$0,049 \\ 
@@ -324,23 +324,23 @@ $n$ & T[s] ($Windows$) & T[s] ($Linux$)  \\ \hline
 En la \textit{Fig. 3} se muestra el gráfico el tiempo de ejecución del algoritmo respecto a los valores de entrada de $n$ en el sistema operativo Windows 10 Pro x64 en función de los datos de la \textit{Tabla 1}:
 
 \begin{figure}[H]
-\caption{\textit{\label{fig:grafico1}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Windows 10.}}
+\caption{\textit{\label{fig:grafico1}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Windows 10}}
 \centering
-\includegraphics[width=0.47\textwidth]{grafico_1.png}
+\includegraphics[width=0.47\textwidth]{imagenes/grafico_1.png}
 \end{figure}
 
 En la \textit{Fig. 4} se muestra el gráfico el tiempo de ejecución del algoritmo respecto a los valores de entrada de $n$ en el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1:
 
 \begin{figure}[H]
-\caption{\textit{\label{fig:grafico2}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Linux Manjaro.}}
+\caption{\textit{\label{fig:grafico2}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} en el SO Linux Manjaro}}
 \centering
-\includegraphics[width=0.47\textwidth]{grafico_2.png}
+\includegraphics[width=0.47\textwidth]{imagenes/grafico_2.png}
 \end{figure}
 
 A continuación se muestra la tabla de datos con los valores obtenidos del algoritmo ejecutado en un computador de escritorio con hardware distinto al usado, como se mencionó en la sección 5 de este documento (DISEÑO DEL EXPERIMENTO):
 
 \begin{table}[H]
-\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con distinto hardware.}}\label{tab:tabla2}
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con distinto hardware}}\label{tab:tabla2}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
 $n$ & T[s] ($Windows$) \\ \hline
 2 & $\Delta$0,001 \\
@@ -362,18 +362,84 @@ $n$ & T[s] ($Windows$) \\ \hline
 En la \textit{Fig. 5} se muestra el gráfico el tiempo de ejecución del algoritmo respecto a los valores de entrada de $n$ con el hardware distinto usado en función de los datos de la \textit{Tabla 2}:
 
 \begin{figure}[H]
-\caption{\textit{\label{fig:grafico3}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} con hardware distinto al usado anteriormente.}}
+\caption{\textit{\label{fig:grafico3}Gráfico de Tiempo de ejecución respecto a valores de entrada de \textbf{n} con hardware distinto al usado anteriormente}}
 \centering
-\includegraphics[width=0.47\textwidth]{grafico_3.jpeg}
+\includegraphics[width=0.47\textwidth]{imagenes/grafico_3.jpeg}
 \end{figure}
 
 %ANÁLISIS DE RESULTADOS-------------------------------------------------------------
 \section{ANÁLISIS DE RESULTADOS}\label{analisis}
+Se decidió utilizar los datos de la \textit{Tabla 1}, específicamente los tiempos de ejecución del algoritmo en el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1, esto debido a que las muestras obtenidas fueron más estables y presentaron un mejor rendimiento con respecto a lo que se obtuvo en Windows 10 Pro x64.
+
+Utilizando estos datos se realizó un gráfico de tiempo versus entrada de datos, como los obtenidos en la sección 7 (RESULTADOS OBTENIDOS) (ver \textit{Fig. 4}), donde la entrada de datos es la variable independiente y el tiempo de ejecución la variable dependiente. Hecho esto, usando el software de hojas de cálculo Microsoft Excel se utilizó la herramienta de línea de tendencia para realizar una regresión lineal, ergo, determinar el modelo matemático que mejor se ajusta al comportamiento temporal del algoritmo en estudio.
+
+\begin{figure}[H]
+\caption{\textit{\label{fig:grafico4}Modelo obtenido mediante regresión lineal sobre los tiempos de ejecución del algoritmo en sistema operativo Manjaro Linux}}
+\centering
+\includegraphics[width=0.47\textwidth]{imagenes/grafico_4.png}
+\end{figure}
+
+Como se puede apreciar en la figura 6, La regresión lineal aplicada sobre los puntos del gráfico muestra un modelo matemático de tendencia polinómica de grado 3, con un error $R^{2}$ = 0,9998. La ecuación obtenida queda de la siguiente forma:
+
+{
+\scriptsize
+\begin{equation}
+{T(n)=(7 \cdot 10^{-9})n^3-(6 \cdot 10^{-6})n^2+0,0026n-0,0972}
+\end{equation}
+}
+
+FALTA SI ES QUE PODEMOS LO DE ORDEN DE COMPLEJIDAD
+
+\subsection{Validación del modelo}
+
+Para comprobar si la ecuación entrega valores estimativos y/o referenciales de tiempo de ejecución con respecto a los obtenidos mediante la aplicación del algoritmo, se han anotado los errores porcentuales (RDP) correspondientes en la \textit{Tabla 3}, así mostrando el sesgo de cada valor declarado por $n$.
+
+\begin{table}[H]
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación con los datos obtenidos de forma experimental y mediante fórmula junto con su error porcentual}}\label{tab:tabla3}
+\begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
+$n$ & T[s] & T(n)[s] & RDP\\ \hline
+2 & $\Delta$0,001 & $\Delta$-0,092 & 101\% \\
+5 & $\Delta$0,001 & $\Delta$-0,084 & 101\% \\
+10 & $\Delta$0,001 & $\Delta$-0,071 & 100\% \\
+20 & $\Delta$0,001 & $\Delta$-0,047 & 100\% \\
+50 & $\Delta$0,002 & $\Delta$0,019 & 89.47\% \\
+100 & $\Delta$0,044 & $\Delta$0,109 & 59,633\% \\
+200 & $\Delta$0,049 & $\Delta$0,239 & 79,498\% \\ 
+250 & $\Delta$0,084 & $\Delta$0,287 & 70,732\% \\ 
+500 & $\Delta$0,513 & $\Delta$0,578 & 11,246\% \\ 
+750 & $\Delta$1,724 & $\Delta$1,431 & 20,475\% \\
+1000 & $\Delta$3,833 & $\Delta$3,503 & 9,421\% \\ 
+1500 & $\Delta$14,082 & $\Delta$13,928 & 1,106\% \\ 
+2000 & $\Delta$38,143 & $\Delta$37,103 & 2,726\% \\ \hline
+\end{tabularx}
+\end{table}
 
 
+\subsection{Predicciones con el modelo}
+
+\begin{table}[H]
+\caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación a los datos obtenidos con la ecuación resultante del modelo matemático formulado.}}\label{tab:tabla4}
+\begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
+$n$ & T[s] ($Linux$) \\ \hline
+1250 & $\Delta$7,449 \\
+1750 & $\Delta$23,593 \\
+2150 & $\Delta$47,326 \\
+5000 & $\Delta$737,903 \\
+7000 & $\Delta$2.125,100 \\
+10000 & $\Delta$6.425,900 \\
+20000 & $\Delta$5.3651,900 \\ 
+50000 & $\Delta$86.0130,000 \\ 
+100000 & $\Delta$6.940.260,000 \\ 
+1000000 & $\Delta$6.994.002.599,900 \\
+ \hline
+\end{tabularx}
+\end{table}
+
+Con estos resultados se puede  verificar que en base a la ecuación obtenida en la validación del modelo es posible estimar tiempos de ejecución con respecto a valores de $n$.
 %CONCLUSIONES-------------------------------------------------------------
 \section{CONCLUSIONES}\label{conclusiones}
 
+FALTA ESTO
 
 %------------------------------------------------------------------------
 
