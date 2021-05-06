@@ -36,9 +36,9 @@ Luciano Grandi  \\
 
 %Resumen del documento----------------------------------------------------------------
 \begin{abstract}
-Mediante la implementación de un algoritmo de multiplicación de dos matrices cuadradas, se mostrará la relación entre el tamaño de datos de entrada respecto al tiempo de ejecución del algoritmo, en base a un análisis empírico. Con la finalidad de modelar una función que defina la relación existente entre los datos proporcionados, se graficarán los datos, para encontrar una ecuación que pueda modelar datos cercanos a los obtenidos, y así, mediante el uso de límites, encontrar el orden de complejidad relacionado al algoritmo.  \\
+Mediante la implementación de un algoritmo de multiplicación de dos matrices cuadradas, se mostrará la relación entre el tamaño de datos de entrada respecto al tiempo de ejecución del algoritmo en base a un análisis empírico. Con la finalidad de modelar una función que defina la relación existente entre los datos proporcionados, se graficarán los datos para encontrar una ecuación que pueda modelar datos cercanos a los obtenidos, y así, mediante el uso de límites, encontrar el orden de complejidad relacionado al algoritmo.  \\
 \\
-\textbf{Abstract} By implementing an algorithm for the multiplication of two square matrices, the relationship between the size of the input data with respect to the algorithm execution time will be shown, based on an empirical analysis. In order to model a function that defines the relationship between the data provided, the data will be plotted, to find an equation that can model data close to those obtained, and thus, through the use of limits, find the order of complexity related to the algorithm.
+\textbf{Abstract} By implementing an algorithm for the multiplication of two square matrices, the relationship between the size of the input data with respect to the execution time of the algorithm will be shown based on an empirical analysis. In order to model a function that defines the relationship between the data provided, the data will be plotted to find an equation that can model data close to those obtained, and thus, through the use of bounds, find the order of complexity related to the algorithm. 
 \\
 
 %Palabras Clave-----------------------------------------------------------------------
@@ -141,13 +141,12 @@ void multmatrix(int n)
   }
 
   cout<<"Resultado: ";
-    for(i=0;i<n;i++){
-      for(j=0;j<n;j++){
-        cout<<res[i][j];
-        cout<<"-";
-      }
-      cout<<endl;
+  for(i=0;i<n;i++){
+    for(j=0;j<n;j++){
+      cout<<res[i][j];
+      cout<<"-";
     }
+    cout<<endl;
   }
 }
 
@@ -461,6 +460,7 @@ $n$ & T[s] prom. & T(n)[s] & RDP\\ \hline
 
 
 \subsection{Predicciones con el modelo}
+En la \textit{Tabla 5} se mostrará algunos valores de entrada de $n$ que pueden resultar interesantes de observar, tanto en comportamiento del dato, como del tiempo de ejecución.
 
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación a los datos obtenidos con la ecuación resultante del modelo matemático formulado.}}\label{tab:tabla5}
@@ -484,15 +484,15 @@ Con estos resultados se puede  verificar que en base a la ecuación obtenida en 
 %CONCLUSIONES-------------------------------------------------------------
 \section{CONCLUSIONES}\label{conclusiones}
 
-De acuerdo a lo mostrado anteriormente, se puede demostrar que los objetivos propuestos se cumplieron satisfactoriamente y en base a esto es que se puede llegar a varias conclusiones.
+De acuerdo a lo mostrado anteriormente, se puede demostrar que los objetivos propuestos se cumplieron satisfactoriamente, y en base a esto es que se puede llegar a varias conclusiones.
 
-Luego de calcular todos los datos requeridos y analizarlos, se puede ver que los tiempos responden a una función polinómica de carácter exponencial y a medida que se aumente la variable de entrada $n$, el tiempo requerido para poder llegar al resultado irá en ascenso con una gran diferencia respecto al anterior.
+Luego de calcular todos los datos requeridos y analizarlos, se puede ver que los tiempos responden a una función polinómica de carácter exponencial por lo que a medida que se aumente la variable de entrada $n$, el tiempo requerido para poder llegar al resultado, irá en ascenso con una gran diferencia respecto al anterior.
 
-El algoritmo utilizado, de acuerdo a los datos obtenidos, varia demasiado en el tiempo que se demora en realizar el calculo de la multiplicación de dos matrices con diferentes hardware y diferentes sistemas operativos, pudiendo llegar a notar un gran aumento en el tiempo de hasta un 1350\% aproximadamente.
+El algoritmo utilizado, de acuerdo a los datos obtenidos, varía demasiado en el tiempo que se demora en realizar el cálculo de la multiplicación de dos matrices con diferentes hardware y diferentes sistemas operativos. Pudiendo llegar a notar un gran aumento en el tiempo de hasta un 1350\% aproximadamente.
 
-Con respecto a los valores de RDP, si bien se ven que los valores pueden llegar a superar el 100\%, esto es solamente por que los tiempos calculados son demasiado pequeños y posteriormente se demuestra que el modelo se valida ya que los valores de RDP fueron bajando en cálculos que llegaban a tiempos mas grandes en los que la diferencia era mínima llegando incluso a un valor de RDP de 1,1\% aproximadamente.
+Con respecto a los valores de RDP, si bien se ve que estos pueden llegar a superar el 100\% de diferencia, esto es solamente porque los tiempos calculados son demasiado pequeños, y posteriormente se demuestra que el modelo se valida, ya que los valores de RDP fueron bajando en cálculos que llegaban a tiempos más grandes, en los que la diferencia era mínima, llegando incluso a un valor de RDP de 1,1\% aproximadamente.
 
-Luego de realizar todas las mediciones mostradas se llegó a la conclusión de que la mejor combinación de hardware y software es el computador portátil con el procesador AMD Ryzen 3 2200U con Radeon Vega Mobile 2,5 GHz quadcore y el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1. Si bien no se pudo llegar a una respuesta clara del por qué el cálculo del número fue mas rápido en un procesador de menor gama, la información recopilada en conversaciones con académicos nos ayudó a entender que esto se podría deber a el ALU que tiene el procesador, pero al buscar información sobre esto con el modelo especifico no se pudo encontrar.
+Luego de realizar todas las mediciones mostradas, se llegó a la conclusión de que la mejor combinación de hardware y software, es en el computador portátil con el procesador AMD Ryzen 3 2200U con Radeon Vega Mobile 2,5 GHz quadcore y el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1. Si bien no se pudo llegar a una respuesta clara del por qué el cálculo del número fue mas rápido en un procesador de menor gama. La información recopilada en conversaciones con académicos, nos ayudó a entender que ésto se podría deber al ALU que tiene el procesador, pero al buscar información sobre esto con el modelo especifico no se pudo encontrar.
 
 %------------------------------------------------------------------------
 
