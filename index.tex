@@ -179,13 +179,8 @@ Medir el tiempo de ejecución de un algoritmo de multiplicación de matrices cua
 \subsection{Objetivos específicos}
 \begin{itemize}
     \item Diseñar y ejecutar un experimento a base de un algoritmo.
-    \item Recopilar muestras de datos experimentales de la aplicación del algoritmo.
-    \item Analizar los resultados obtenidos en el experimento.
-    \item Graficar los resultados obtenidos.
-    \item Determinar el modelo matemático en función al tiempo que se ajusta al problema.
-    \item Validar el modelo matemático obtenido ejecutando nuevamente el experimento con una serie de datos distintos a los usados anteriormente.
-    \item Comparar los resultados empíricos con los predichos en el modelo obtenido.
-    \item Comentar los valores RDP y explicar el porcentaje obtenido.
+    \item Recopilar muestras de datos experimentales de la aplicación del algoritmo y analizar los resultados obtenidos en el experimento.
+    \item Determinar el modelo matemático en función al tiempo que se ajusta al problema, y así validar el modelo obtenido ejecutando nuevamente el experimento con una serie de datos distintos a los usados anteriormente, para comparar los resultados empíricos con los predichos en el modelo obtenido.
 \end{itemize}
 
 %METODOLOGÍA-------------------------------------------------------------
@@ -305,20 +300,20 @@ Con los valores obtenidos, se elaboró la siguiente tabla:
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con Windows y Linux}}\label{tab:tabla1}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
-$n$ & T[s] ($Windows$) & T[s] ($Linux$)  \\ \hline
-2 & $\Delta$0,000 & $\Delta$4,3x$10^{-5}$ \\
-5 & $\Delta$0,015 & $\Delta$9,9x$10^{-5}$ \\
-10 & $\Delta$0,015 & $\Delta$1,1x$10^{-4}$ \\
-20 & $\Delta$0,057 & $\Delta$2,7x$10^{-4}$ \\
-50 & $\Delta$0,339 & $\Delta$0,002 \\
-100 & $\Delta$1,432 & $\Delta$0,044 \\
-200 & $\Delta$5,718 & $\Delta$0,049 \\ 
-250 & $\Delta$8,608 & $\Delta$0,084 \\ 
-500 & $\Delta$33,516 & $\Delta$0,513 \\ 
-750 & $\Delta$64,917 & $\Delta$1,724 \\
-1000 & $\Delta$128,803 & $\Delta$3,833 \\ 
-1500 & $\Delta$257,952 & $\Delta$14,082 \\ 
-2000 & $\Delta$514,581 & $\Delta$38,143 \\ \hline
+$n$ & T[s] prom. ($Windows$) & T[s] prom. ($Linux$)  \\ \hline
+2 & 0,000 & 4,3x$10^{-5}$ \\
+5 & 0,015 & 9,9x$10^{-5}$ \\
+10 & 0,015 & 1,1x$10^{-4}$ \\
+20 & 0,057 & 2,7x$10^{-4}$ \\
+50 & 0,339 & 0,002 \\
+100 & 1,432 & 0,044 \\
+200 & 5,718 & 0,049 \\ 
+250 & 8,608 & 0,084 \\ 
+500 & 33,516 & 0,513 \\ 
+750 & 64,917 & 1,724 \\
+1000 & 128,803 & 3,833 \\ 
+1500 & 257,952 & 14,082 \\ 
+2000 & 514,581 & 38,143 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -343,20 +338,20 @@ A continuación se muestra la tabla de datos con los valores obtenidos del algor
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} con distinto hardware}}\label{tab:tabla2}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
-$n$ & T[s] ($Windows$) \\ \hline
-2 & $\Delta$0,001 \\
-5 & $\Delta$0,004 \\
-10 & $\Delta$0,017 \\
-20 & $\Delta$0,070 \\
-50 & $\Delta$2,062 \\
-100 & $\Delta$3,127 \\
-200 & $\Delta$9,027 \\ 
-250 & $\Delta$13,137 \\ 
-500 & $\Delta$42,907 \\ 
-750 & $\Delta$93,611 \\
-1000 & $\Delta$172,328 \\ 
-1500 & $\Delta$397,900 \\ 
-2000 & $\Delta$704,870 \\ \hline
+$n$ & T[s] prom. ($Windows$) \\ \hline
+2 & 0,001 \\
+5 & 0,004 \\
+10 & 0,017 \\
+20 & 0,070 \\
+50 & 2,062 \\
+100 & 3,127 \\
+200 & 9,027 \\ 
+250 & 13,137 \\ 
+500 & 42,907 \\ 
+750 & 93,611 \\
+1000 & 172,328 \\ 
+1500 & 397,900 \\ 
+2000 & 704,870 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -377,20 +372,20 @@ En la \textit{Tabla 3} se muestran los datos obtenidos con la ejecución del alg
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en Manjaro Linux}}\label{tab:tabla3}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
-$n$ & T[s] ($Linux$)  \\ \hline
-2 & $\Delta$4,3x$10^{-5}$ \\
-5 & $\Delta$9,9x$10^{-5}$ \\
-10 & $\Delta$1,1x$10^{-4}$ \\
-20 & $\Delta$2,7x$10^{-4}$ \\
-50 & $\Delta$0,002 \\
-100 & $\Delta$0,044 \\
-200 & $\Delta$0,049 \\ 
-250 & $\Delta$0,084 \\ 
-500 & $\Delta$0,513 \\ 
-750 & $\Delta$1,724 \\
-1000 & $\Delta$3,833 \\ 
-1500 & $\Delta$14,082 \\ 
-2000 & $\Delta$38,143 \\ \hline
+$n$ & T[s] prom. ($Linux$)  \\ \hline
+2 & 4,3x$10^{-5}$ \\
+5 & 9,9x$10^{-5}$ \\
+10 & 1,1x$10^{-4}$ \\
+20 & 2,7x$10^{-4}$ \\
+50 & 0,002 \\
+100 & 0,044 \\
+200 & 0,049 \\ 
+250 & 0,084 \\ 
+500 & 0,513 \\ 
+750 & 1,724 \\
+1000 & 3,833 \\ 
+1500 & 14,082 \\ 
+2000 & 38,143 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -447,20 +442,20 @@ Para comprobar si la ecuación entrega valores estimativos y/o referenciales de 
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación con los datos obtenidos de forma experimental y mediante fórmula junto con su error porcentual}}\label{tab:tabla4}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
-$n$ & T[s] & T(n)[s] & RDP\\ \hline
-2 & $\Delta$0,001 & $\Delta$-0,092 & 101\% \\
-5 & $\Delta$0,001 & $\Delta$-0,084 & 101\% \\
-10 & $\Delta$0,001 & $\Delta$-0,071 & 100\% \\
-20 & $\Delta$0,001 & $\Delta$-0,047 & 100\% \\
-50 & $\Delta$0,002 & $\Delta$0,019 & 89.47\% \\
-100 & $\Delta$0,044 & $\Delta$0,109 & 59,633\% \\
-200 & $\Delta$0,049 & $\Delta$0,239 & 79,498\% \\ 
-250 & $\Delta$0,084 & $\Delta$0,287 & 70,732\% \\ 
-500 & $\Delta$0,513 & $\Delta$0,578 & 11,246\% \\ 
-750 & $\Delta$1,724 & $\Delta$1,431 & 20,475\% \\
-1000 & $\Delta$3,833 & $\Delta$3,503 & 9,421\% \\ 
-1500 & $\Delta$14,082 & $\Delta$13,928 & 1,106\% \\ 
-2000 & $\Delta$38,143 & $\Delta$37,103 & 2,726\% \\ \hline
+$n$ & T[s] prom. & T(n)[s] & RDP\\ \hline
+2 & 0,001 & $\Delta$-0,092 & 101\% \\
+5 & 0,001 & $\Delta$-0,084 & 101\% \\
+10 & 0,001 & $\Delta$-0,071 & 100\% \\
+20 & 0,001 & $\Delta$-0,047 & 100\% \\
+50 & 0,002 & $\Delta$0,019 & 89.47\% \\
+100 & 0,044 & $\Delta$0,109 & 59,633\% \\
+200 & 0,049 & $\Delta$0,239 & 79,498\% \\ 
+250 & 0,084 & $\Delta$0,287 & 70,732\% \\ 
+500 & 0,513 & $\Delta$0,578 & 11,246\% \\ 
+750 & 1,724 & $\Delta$1,431 & 20,475\% \\
+1000 & 3,833 & $\Delta$3,503 & 9,421\% \\ 
+1500 & 14,082 & $\Delta$13,928 & 1,106\% \\ 
+2000 & 38,143 & $\Delta$37,103 & 2,726\% \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -470,7 +465,7 @@ $n$ & T[s] & T(n)[s] & RDP\\ \hline
 \begin{table}[H]
 \caption{\textit{Tiempos de ejecución del algoritmo respecto a \textbf{n} en comparación a los datos obtenidos con la ecuación resultante del modelo matemático formulado.}}\label{tab:tabla5}
 \begin{tabularx}{\columnwidth}{ | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |} \hline
-$n$ & T[s] ($Linux$) \\ \hline
+$n$ & T(n)[s] ($Linux$) \\ \hline
 1250 & $\Delta$7,449 \\
 1750 & $\Delta$23,593 \\
 2150 & $\Delta$47,326 \\
@@ -489,7 +484,15 @@ Con estos resultados se puede  verificar que en base a la ecuación obtenida en 
 %CONCLUSIONES-------------------------------------------------------------
 \section{CONCLUSIONES}\label{conclusiones}
 
-FALTA ESTO
+De acuerdo a lo mostrado anteriormente, se puede demostrar que los objetivos propuestos se cumplieron satisfactoriamente y en base a esto es que se puede llegar a varias conclusiones.
+
+Luego de calcular todos los datos requeridos y analizarlos, se puede ver que los tiempos responden a una función polinómica de carácter exponencial y a medida que se aumente la variable de entrada $n$, el tiempo requerido para poder llegar al resultado irá en ascenso con una gran diferencia respecto al anterior.
+
+El algoritmo utilizado, de acuerdo a los datos obtenidos, varia demasiado en el tiempo que se demora en realizar el calculo de la multiplicación de dos matrices con diferentes hardware y diferentes sistemas operativos, pudiendo llegar a notar un gran aumento en el tiempo de hasta un 1350\% aproximadamente.
+
+Con respecto a los valores de RDP, si bien se ven que los valores pueden llegar a superar el 100\%, esto es solamente por que los tiempos calculados son demasiado pequeños y posteriormente se demuestra que el modelo se valida ya que los valores de RDP fueron bajando en cálculos que llegaban a tiempos mas grandes en los que la diferencia era mínima llegando incluso a un valor de RDP de 1,1\% aproximadamente.
+
+Luego de realizar todas las mediciones mostradas se llegó a la conclusión de que la mejor combinación de hardware y software es el computador portátil con el procesador AMD Ryzen 3 2200U con Radeon Vega Mobile 2,5 GHz quadcore y el sistema operativo Manjaro x64 Kernell Linux 5.9.10-1. Si bien no se pudo llegar a una respuesta clara del por qué el cálculo del número fue mas rápido en un procesador de menor gama, la información recopilada en conversaciones con académicos nos ayudó a entender que esto se podría deber a el ALU que tiene el procesador, pero al buscar información sobre esto con el modelo especifico no se pudo encontrar.
 
 %------------------------------------------------------------------------
 
